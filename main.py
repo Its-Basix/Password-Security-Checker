@@ -33,13 +33,15 @@ if any(not c.isalnum() for c in password):
 else: 
     message.append("Try Using some symbols.")
 
-if password.lower() in ["password","password1","password123","123456","12345678","123456789","123123","111111","qwerty","qwerty123","abc123",
+common_passwords = ["password","password1","password123","123456","12345678","123456789","123123","111111","qwerty","qwerty123","abc123",
 "letmein","iloveyou","admin","welcome","monkey","dragon","sunshine","football","baseball","starwars","hello","guest","login","princess",
-"master","passw0rd","trustno1","654321" ]:
+"master","passw0rd","trustno1","654321" ]
+
+if password.lower() in common_passwords:
     message.append("This is a common password, Please select another one")
     score = 0
 
-result = ""
+
 
 if score <= 3:
     result = "Weak Strength"
@@ -49,6 +51,8 @@ else:
     result = "Strong"
 
 
-print(score)
-print(message)
+print("Score:", score)
 print(result)
+print("Feedback: ")
+for msg in message:
+    print("-", msg)
